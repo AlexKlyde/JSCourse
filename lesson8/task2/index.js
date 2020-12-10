@@ -18,4 +18,8 @@ const concatProps = obj => {
     return arr;
 }
 
+// example 2
+
+const concatProps = obj => Object.values(obj)
+
 console.log(concatProps({ name: 'John Doe', age: 17, interest: 'football' }));
