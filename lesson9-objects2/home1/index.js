@@ -17,10 +17,9 @@ const rooms = {
 };
 
 const getPeople = obj => {
-  const peopleArr = Object.values(obj);
-  const flattened = [].concat(...peopleArr);
+  const peopleArr = Object.values(obj).flat();
   let res = [];
-  flattened.forEach(el => res.push(el.name));
+  peopleArr.forEach(el => res.push(el.name));
   return res;
 }
 
