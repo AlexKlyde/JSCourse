@@ -17,6 +17,11 @@ const rooms = {
 };
 
 const getPeople = obj => {
-  
+  const peopleArr = Object.values(obj);
+  const flattened = [].concat(...peopleArr);
+  let res = [];
+  flattened.forEach(el => res.push(el.name));
+  return res;
 }
+
 console.log(getPeople(rooms));
