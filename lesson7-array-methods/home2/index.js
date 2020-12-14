@@ -10,13 +10,15 @@
 Исходный массив не должен поменяться
 Используйте методы массивов для решения текущей задачи. Циклы for и while здесь использовать не нужно 
  */
+const arr = [1, 2, 3, 4, 5, 6];
 
 const reverseArray = arr => {
     if(!Array.isArray(arr)) {
         return null;
     }
-    const reversed = [...arr].reverse();
-
-    return reversed;
+    return [...arr].reverse();
 }
+
+console.log(reverseArray(arr))
+console.log(arr)
 
