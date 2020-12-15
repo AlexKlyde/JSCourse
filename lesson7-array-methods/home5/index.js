@@ -12,6 +12,7 @@
 Функция должна снимать деньги со счета определенного клиента и возвращать остаток на счете. Если денег на счете недостаточно функция будет возвращать -1 (деньги в этом случае не должны быть сняты)
 Используйте методы массивов для решения текущей задачи. Циклы for и while здесь использовать не нужно*/
 
+// bad
 const withdraw = (clients, balances, client, amount) => {
   let res = -1;
 
@@ -24,4 +25,13 @@ const withdraw = (clients, balances, client, amount) => {
   return res;
 }
 
-console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'John', 50));
+// good
+// Example2
+const withdraw = (clients, balances, client, amount) => {
+  const index = clients.indexOf(client);
+
+  return balances[index] < amount ? -1 :
+    balances[index] - amount;
+}
+
+console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'John', 87));

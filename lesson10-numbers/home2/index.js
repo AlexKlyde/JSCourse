@@ -17,20 +17,18 @@
 // input: num, num, num
 // output: arr or null
 
-
 const getRandomNumbers = (len, min, max) => {
-    if (Math.abs(max - min) > 1) {
-       return Array(len).fill().map(() => {
-            if (min > 0 && max > 0) {
-                return Math.floor(Math.random() * (max - min) + min);
-            }
-
-            return Math.ceil(Math.random() * (max - min) + min);
-        });
-    }
-
+  if (Math.abs(max - min) < 1) {
     return null;
-}
+  }
 
-console.log(getRandomNumbers(10, 2, 8));
+  return Array(len)
+    .fill()
+    .map(() => min > 0 && max > 0 ?
+      Math.floor(Math.random() * (max - min) + min) :
+      Math.ceil(Math.random() * (max - min) + min));
+};
 
+// console.log(getRandomNumbers(5, 1.4, 3.22)); // ==> [2, 2, 2, 3, 2]
+// console.log(getRandomNumbers(5, 1.4, 3.22)); // ==> [3, 2, 2, 2, 2]
+// console.log(getRandomNumbers(5, 1.4, 3.22));
