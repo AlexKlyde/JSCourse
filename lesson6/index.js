@@ -1,3 +1,6 @@
+// ESLint Errors
+// Awful code
+
 function run() {
   var a = 0;
 
