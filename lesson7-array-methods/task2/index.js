@@ -1,5 +1,3 @@
-'use strict';
-
 // sort array
 
 const array = [1, 7, 8, 2, 5, 6, 1, 10, 9];
@@ -24,7 +22,7 @@ const sortArray = numbers => {
   return arr.sort((a, b) => a - b);
 };
 
-// Option 3 
+// final solution 
 const array = [1, 7, 8, 2, 5, 6, 1, 10, 9]
 
 const sortArray = numbers => 
