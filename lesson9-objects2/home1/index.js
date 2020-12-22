@@ -1,4 +1,3 @@
-'use strict';
 const rooms = {
   room1: [
     { name: 'room1 name1' },
@@ -17,10 +16,9 @@ const rooms = {
 };
 
 
-const getPeople = obj => {
-  return Object.values(obj)
+const getPeople = obj =>
+  Object.values(obj)
     .reduce((acc, el) => acc.concat(el), [])
     .map(el => el.name);
-}
 
 console.log(getPeople(rooms));

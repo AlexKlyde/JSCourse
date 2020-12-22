@@ -1,4 +1,3 @@
-'use strict';
 const customers = {
   'customer-id-1': {
     name: 'William',
@@ -10,11 +9,11 @@ const customers = {
   },
 };
 
-const getCustomersList = obj => {
-  return Object.values(obj)
-    .map()
+const getCustomersList = obj =>
+  Object.entries(obj)
+    .map(arr => ({ ...arr[1], id: arr[0] }))
     .sort((a, b) => a.age - b.age);
-}
+// test func
 
 
 console.log(getCustomersList(customers));
