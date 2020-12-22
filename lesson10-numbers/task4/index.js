@@ -1,19 +1,9 @@
-/*Поиск максимального числа
-Создайте функцию, которая будет возвращать максимальное по модулю число
 
-Основные требования:
-Функция должна называться getMaxAbsoluteNumber
-Функция должна принимать массив чисел (могут быть дробные, отрицательные и положительные) как единственный аргумент
-Функция должна вернуть максимальное по модулю число
-Пример работы: [-777, 3, -1, 45, -20] => 777
-    
-Если передан не массив, или пустой массив, то вернуть null
-*/
 const numbers = [];
 
 // Option 1
 
-const getMaxAbsoluteNumber = arr => {
+/* const getMaxAbsoluteNumber = arr => {
   if (!Array.isArray(arr)) {
       return null;
   }
@@ -26,7 +16,7 @@ const getMaxAbsoluteNumber = arr => {
   });
 
   return max;
-}
+} */
 
 // Option 2
 const getMaxAbsoluteNumberV2 = arr => {
@@ -34,10 +24,10 @@ const getMaxAbsoluteNumberV2 = arr => {
       return null;
   }
   
-  const absoluteValues = arr
+  const absoluteVal = arr
     .map(num => Math.abs(num));
 
-  return Math.max(...absoluteValues);
+  return Math.max(...absoluteVal);
 }
 
 console.log(getMaxAbsoluteNumber(numbers));
