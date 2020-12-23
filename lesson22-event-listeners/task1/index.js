@@ -1,9 +1,14 @@
 const divElem = document.querySelector('.rect_div');
 const pElem = document.querySelector('.rect_p');
 const spanElem = document.querySelector('.rect_span');
+const eventsListElem = document.querySelector('.events-list');
+const clearBtn = document.querySelector('.clear-btn');
+
+clearBtn.addEventListener('click', () => {
+  eventsListElem.innerHTML = '';
+})
 
 const logTarget = (text, color) => {
-  const eventsListElem = document.querySelector('.events-list');
   eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`; 
 }
 
@@ -15,12 +20,12 @@ const logGreyDiv = logTarget.bind(null, 'div', 'grey');
 const logGreyP = logTarget.bind(null, 'p', 'grey');
 const logGreySpan = logTarget.bind(null, 'span', 'green');
 
-divElem.addEventListener('click', logGreenDiv, true);
-pElem.addEventListener('click', logGreenP, true);
-spanElem.addEventListener('click', logGreenSpan, true);
+divElem.addEventListener('click', logGreenDiv);
+pElem.addEventListener('click', logGreenP);
+spanElem.addEventListener('click', logGreenSpan);
 
-divElem.addEventListener('click', logGreyDiv);
-pElem.addEventListener('click', logGreyP);
-spanElem.addEventListener('click', logGreySpan);
+divElem.addEventListener('click', logGreyDiv, true);
+pElem.addEventListener('click', logGreyP, true);
+spanElem.addEventListener('click', logGreySpan, true);
 
 
