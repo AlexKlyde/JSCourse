@@ -22,6 +22,14 @@ clearBtn.addEventListener('click', () => {
   eventsListElem.innerHTML = '';
 });
 
+divElem.addEventListener('click', logGreenDiv);
+pElem.addEventListener('click', logGreenP);
+spanElem.addEventListener('click', logGreenSpan);
+
+divElem.addEventListener('click', logGreyDiv, true);
+pElem.addEventListener('click', logGreyP, true);
+spanElem.addEventListener('click', logGreySpan, true);
+
 attachBtn.addEventListener('click', () => {
   divElem.addEventListener('click', logGreenDiv);
   pElem.addEventListener('click', logGreenP);
