@@ -4,7 +4,7 @@ const spanElem = document.querySelector('.rect_span');
 
 const logTarget = (text, color) => {
   const eventsListElem = document.querySelector('.events-list');
-  eventsListElem.innerHtml = `<span style="color: ${color}; margin-left: 8px;">${text}</span>`; 
+  eventsListElem.innerHtml += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`; 
 }
 
 const logGreenDiv = logTarget.bind(null, 'div', 'green');
