@@ -4,7 +4,7 @@ const spanElem = document.querySelector('.rect_span');
 
 const logTarget = (text, color) => {
   const eventsListElem = document.querySelector('.events-list');
-  eventsListElem.innerHtml += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`; 
+  eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`; 
 }
 
 const logGreenDiv = logTarget.bind(null, 'div', 'green');
@@ -15,10 +15,12 @@ const logGreyDiv = logTarget.bind(null, 'div', 'grey');
 const logGreyP = logTarget.bind(null, 'p', 'grey');
 const logGreySpan = logTarget.bind(null, 'span', 'green');
 
-divElem.addEventListener('click', logGreenDiv);
-pElem.addEventListener('click', logGreenP);
-spanElem.addEventListener('click', logGreenSpan);
+divElem.addEventListener('click', logGreenDiv, true);
+pElem.addEventListener('click', logGreenP, true);
+spanElem.addEventListener('click', logGreenSpan, true);
 
-divElem.addEventListener('click', logGreyDiv, true);
-pElem.addEventListener('click', logGreyP, true);
-spanElem.addEventListener('click', logGreySpan, true);
+divElem.addEventListener('click', logGreyDiv);
+pElem.addEventListener('click', logGreyP);
+spanElem.addEventListener('click', logGreySpan);
+
+
