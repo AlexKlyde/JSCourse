@@ -16,7 +16,7 @@ const logGreenSpan = logTarget.bind(null, 'span', 'green');
 
 const logGreyDiv = logTarget.bind(null, 'div', 'grey');
 const logGreyP = logTarget.bind(null, 'p', 'grey');
-const logGreySpan = logTarget.bind(null, 'span', 'green');
+const logGreySpan = logTarget.bind(null, 'span', 'grey');
 
 clearBtn.addEventListener('click', () => {
   eventsListElem.innerHTML = '';
