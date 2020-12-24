@@ -3,7 +3,7 @@ const arenaElem = document.querySelector('.arena');
 const generateNumbersRange = (from, to) => {
   const result = [];
 
-  for (let i = from; i <= to; i++) {
+  for (let i = from; i <= to; i += 1) {
     result.push(i);
   }
 
@@ -56,8 +56,8 @@ const onSeatSelect = event => {
   const lineNum = event.target.closest('.sector__line').dataset.lineNumber
   const sectorNum = event.target.closest('.sector').dataset.sectorNumber;
 
-  const selectedSeatElem = document.querySelector('.board__selected');
-  selectedSeatElem.textContent = `S ${sectorNumber} - L ${line}`
+  const selectedSeatElem = document.querySelector('.board__selected-seat');
+  selectedSeatElem.textContent = `S ${sectorNum} - L ${lineNum} - S ${seatNum}`;
 
 }
 
