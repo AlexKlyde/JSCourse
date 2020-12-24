@@ -42,13 +42,8 @@ const createLogger = () => {
   }
   
   const getRecords = type => {
-    loggers.sort((a, b) => b.dateTime - a.dateTime)
-
-    if (type === undefined) {
-      return loggers
-    }
-    
-    return loggers.filter(el => el.type === type);
+    const sortedLogs = loggers.sort((a, b) => b.dateTime - a.dateTime);
+    return type ? sortedLogs : sortedLogs.filter(el => el.type === type);
   }
 
   return {
