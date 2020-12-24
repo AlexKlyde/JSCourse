@@ -1,6 +1,22 @@
-const btns = document.querySelectorAll('.btn');
+// Event deligation
 
-const handleClick = event =>
-  console.log(event.target.textContent);
+const btns = document.querySelector('body');
 
-btns.forEach(item => item.addEventListener('click', handleClick));
+// Option 1
+/* const handleClick = event => {
+  const isButton = event.target.classList.contains('.btn');
+  if (!isButton) {
+    return;
+  }
+  
+  console.log(event.target.textContent);;
+} */
+
+// Option 2
+const handleClick = event => {
+  if (event.target && event.target.nodeName === 'BUTTON') {
+    console.log(event.target.textContent);
+  }
+};
+
+btns.addEventListener('click', handleClick);

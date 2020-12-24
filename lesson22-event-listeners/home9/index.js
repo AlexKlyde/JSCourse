@@ -1,6 +1,22 @@
-const btns = document.querySelectorAll('.pagination__page');
+// Event deligation
 
-const handleClick = event =>
+const btns = document.querySelector('.pagination');
+
+// Option 1
+/* const handleClick = event => {
+  const isButton = event.target.classList.contains('pagination__page');
+  if (!isButton) {
+    return;
+  }
+  
   console.log(event.target.dataset.pageNumber);
+} */
 
-btns.forEach(item => item.addEventListener('click', handleClick));
+// Option 2
+const handleClick = event => {
+  if (event.target && event.target.nodeName === 'BUTTON') {
+    console.log(event.target.dataset.pageNumber);
+  }
+};
+
+btns.addEventListener('click', handleClick);
