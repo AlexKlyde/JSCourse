@@ -31,7 +31,7 @@ const renderListItems = listItems => {
 
 renderListItems(tasks);
 
-// create
+// Add task algo:
 // 1. add eventListener
 // 2. create task object
 // 3. add to the task array
@@ -63,11 +63,11 @@ createBtn.addEventListener('click', addTask);
 // 2. find clicked checkbox that constains class .list__item-checkbox
 // 3. if checkbox was clicked, toggle class list__item_done from parent element
 
-const taskDone = event => {
+const changeTask = event => {
   if (event.target.classList.contains('list__item-checkbox')) {
     const closestElem = event.target.closest('.list__item');
     closestElem.classList.toggle('list__item_done');
   }
 };
 
-listElem.addEventListener('click', taskDone);
+listElem.addEventListener('click', changeTask);
