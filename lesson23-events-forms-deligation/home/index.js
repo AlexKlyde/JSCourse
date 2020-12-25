@@ -6,12 +6,12 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
-const listElem = document.querySelector('.list');
+const ulElem = document.querySelector('.list');
 
 const renderListItems = listItems => {
   const listItemsElems = listItems
     .sort((a, b) => a.done - b.done)
-    .map(({ text, done}) => {
+    .map(({ text, done}, ind) => {
       const listItemElem = document.createElement('li');
       listItemElem.classList.add('list__item');
       if (done) {
@@ -19,6 +19,7 @@ const renderListItems = listItems => {
       }
       const checkboxElem = document.createElement('input');
       checkboxElem.setAttribute('type', 'checkbox');
+      checkboxElem.setAttribute('data-id', ind);
       checkboxElem.checked = done;
       checkboxElem.classList.add('list__item-checkbox');
       listItemElem.append(checkboxElem, text);
@@ -26,7 +27,7 @@ const renderListItems = listItems => {
       return listItemElem;
     });
 
-  listElem.append(...listItemsElems);
+  ulElem.append(...listItemsElems);
 };
 
 renderListItems(tasks);
@@ -51,7 +52,7 @@ const addTask = () => {
   };
 
   tasks.push(task);
-  listElem.innerHTML = '';
+  ulElem.innerHTML = '';
 
   renderListItems(tasks);
 };
@@ -63,11 +64,23 @@ createBtn.addEventListener('click', addTask);
 // 2. find clicked checkbox that constains class .list__item-checkbox
 // 3. if checkbox was clicked, toggle class list__item_done from parent element
 
-const changeTask = event => {
+// const changeTask = event => {
+//   if (event.target.classList.contains('list__item-checkbox')) {
+//     const listItemElem = event.target.closest('.list__item');
+//     listItemElem.classList.toggle('list__item_done');
+//   }
+// };
+
+// ulElem.addEventListener('click', changeTask);
+
+const changeTask2 = event => {
   if (event.target.classList.contains('list__item-checkbox')) {
-    const closestElem = event.target.closest('.list__item');
-    closestElem.classList.toggle('list__item_done');
+    const {id} = event.target.dataset;
+    tasks[id].done = event.target.checked;
+    ulElem.innerHTML = '';
+    renderListItems(tasks);
   }
 };
 
-listElem.addEventListener('click', changeTask);
+ulElem.addEventListener('click', changeTask2);
+
