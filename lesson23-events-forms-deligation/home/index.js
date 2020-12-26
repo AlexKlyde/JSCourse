@@ -66,27 +66,21 @@ createBtn.addEventListener('click', addTask);
 
 // Algo
 // 1. add eventListener to List 
-// 2. find clicked checkbox that constains class .list__item-checkbox
-// 3. if checkbox was clicked, toggle class list__item_done from parent element
+// 2. find the element that constains class .list__item-checkbox
+// 3. get an id of the target element
+// 4. set up a value of the ckeckbox to the task;
+// 5. update the list
+// 6. render list items
 
-// const changeTask = event => {
-//   if (event.target.classList.contains('list__item-checkbox')) {
-//     const listItemElem = event.target.closest('.list__item');
-//     listItemElem.classList.toggle('list__item_done');
-//   }
-// };
-
-// ulElem.addEventListener('click', changeTask);
-
-const changeTask2 = event => {
+const changeTask = event => {
   if (event.target.classList.contains('list__item-checkbox')) {
     const {id} = event.target.dataset;
     tasks[id].done = event.target.checked;
-    
+
     updateList();
     renderListItems(tasks);
   }
 };
 
-ulElem.addEventListener('click', changeTask2);
+ulElem.addEventListener('click', changeTask);
 
