@@ -37,6 +37,11 @@ renderListItems(tasks);
 // 2. create task object
 // 3. add to the task array
 // 4. rerender
+
+const updateList = () => {
+  ulElem.innerHTML = '';
+}
+
 const createBtn = document.querySelector('.create-task-btn');
 const inputEl = document.querySelector('.task-input');
 
@@ -52,8 +57,8 @@ const addTask = () => {
   };
 
   tasks.push(task);
-  ulElem.innerHTML = '';
-
+  
+  updateList();
   renderListItems(tasks);
 };
 
@@ -77,7 +82,8 @@ const changeTask2 = event => {
   if (event.target.classList.contains('list__item-checkbox')) {
     const {id} = event.target.dataset;
     tasks[id].done = event.target.checked;
-    ulElem.innerHTML = '';
+    
+    updateList();
     renderListItems(tasks);
   }
 };
