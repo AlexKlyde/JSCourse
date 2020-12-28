@@ -74,7 +74,7 @@ createBtn.addEventListener('click', addTask);
 
 const changeTask = event => {
   if (event.target.classList.contains('list__item-checkbox')) {
-    const id = event.target.dataset;
+    const { id } = event.target.dataset;
     tasks[id].done = event.target.checked;
 
     updateList();
