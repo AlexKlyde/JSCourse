@@ -61,7 +61,7 @@ const addTask = () => {
 createBtn.addEventListener('click', addTask);
 
 // Algo
-// 1. add eventListener to List 
+// 1. add eventListener to the List 
 // 2. find the element that contains class .list__item-checkbox
 // 3. get an id of the target element
 // 4. set up a value of the ckeckbox to the task;
