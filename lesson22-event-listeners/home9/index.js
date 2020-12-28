@@ -14,7 +14,7 @@ const btns = document.querySelector('.pagination');
 
 // Option 2
 const handleClick = event => {
-  if (event.target && event.target.nodeName === 'BUTTON') {
+  if (event.target.className === 'pagination__page') {
     console.log(event.target.dataset.pageNumber);
   }
 };

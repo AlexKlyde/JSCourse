@@ -38,10 +38,6 @@ renderListItems(tasks);
 // 3. add to the task array
 // 4. rerender
 
-const updateList = () => {
-  ulElem.innerHTML = '';
-}
-
 const createBtn = document.querySelector('.create-task-btn');
 const inputEl = document.querySelector('.task-input');
 
@@ -57,8 +53,8 @@ const addTask = () => {
   };
 
   tasks.push(task);
-  
-  updateList();
+  ulElem.innerHTML = '';
+
   renderListItems(tasks);
 };
 
@@ -73,11 +69,11 @@ createBtn.addEventListener('click', addTask);
 // 6. render list items
 
 const changeTask = event => {
-  if (event.target.classList.contains('list__item-checkbox')) {
+  if (event.target.className === 'list__item-checkbox') {
     const { id } = event.target.dataset;
     tasks[id].done = event.target.checked;
 
-    updateList();
+    ulElem.innerHTML = '';
     renderListItems(tasks);
   }
 };

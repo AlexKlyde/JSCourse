@@ -14,7 +14,7 @@ const btns = document.querySelector('body');
 
 // Option 2
 const handleClick = event => {
-  if (event.target && event.target.nodeName === 'BUTTON') {
+  if (event.target.className === 'btn') {
     console.log(event.target.textContent);
   }
 };
