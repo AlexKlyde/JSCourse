@@ -6,11 +6,23 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
+const compareTasks = (a, b) => {
+  if (a.done < b.done) {
+    return -1;
+  }
+
+  if (a.done > b.done) {
+    return 1;
+  }
+
+  return new Date(b.createDate) - new Date(a.createDate);
+};
+
 const ulElem = document.querySelector('.list');
 
 const renderListItems = listItems => {
   const listItemsElems = listItems
-    .sort((a, b) => a.done - b.done)
+    .sort(compareTasks)
     .map(({ text, done }, ind) => {
       const listItemElem = document.createElement('li');
       listItemElem.classList.add('list__item');
@@ -50,6 +62,7 @@ const addTask = () => {
   const task = {
     text: inputEl.value,
     done: false,
+    createDate: new Date().toISOString(),
   };
 
   tasks.push(task);
