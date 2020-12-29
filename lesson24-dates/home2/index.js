@@ -12,7 +12,7 @@ const compareTasks = (a, b) => {
   }
 
   if (a.done > b.done) {
-    return 0;
+    return 1;
   }
 
   return new Date(b.createDate) - new Date(a.createDate);
