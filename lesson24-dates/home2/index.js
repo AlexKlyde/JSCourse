@@ -1,9 +1,9 @@
 const tasks = [
-  { text: 'Buy milk', done: false },
-  { text: 'Pick up Tom from airport', done: false },
-  { text: 'Visit party', done: false },
-  { text: 'Visit doctor', done: true },
-  { text: 'Buy meat', done: true },
+  { text: 'Buy milk', done: false, createDate: new Date().toISOString()},
+  { text: 'Pick up Tom from airport', done: false, createDate: new Date().toISOString()},
+  { text: 'Visit party', done: false, createDate: new Date().toISOString()},
+  { text: 'Visit doctor', done: true, createDate: new Date().toISOString()},
+  { text: 'Buy meat', done: true, createDate: new Date().toISOString()},
 ];
 
 const compareTasks = (a, b) => {
@@ -62,7 +62,7 @@ const addTask = () => {
   const task = {
     text: inputEl.value,
     done: false,
-    createDate: new Date(),
+    createDate: new Date().toISOString(),
   };
 
   tasks.push(task);
