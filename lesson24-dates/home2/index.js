@@ -62,7 +62,7 @@ const addTask = () => {
   const task = {
     text: inputEl.value,
     done: false,
-    createDate: new Date().toISOString(),
+    createDate: new Date(),
   };
 
   tasks.push(task);
