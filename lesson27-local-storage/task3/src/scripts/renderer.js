@@ -6,7 +6,7 @@ const compareTasks = (a, b) => {
   if (a.done < b.done) {
     return -1;
   }
-  
+
   if (a.done > b.done) {
     return 1;
   }
