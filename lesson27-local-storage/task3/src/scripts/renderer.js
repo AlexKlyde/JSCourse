@@ -3,16 +3,14 @@ import { getItem } from './storage.js';
 const listElem = document.querySelector('.list')
 
 const compareTasks = (a, b) => {
-  if (a.done < b.done) {
-    return -1;
+  if (!a.done) {
+    return new Date(b.createDate) - new Date(a.createDate);
   }
-
-  if (a.done > b.done) {
-    return 1;
+  
+  if (a.done && b.done) {
+    return new Date(b.finishDate) - new Date(a.finishDate);
   }
-
-  return new Date(b.createDate) - new Date(a.createDate);
-}
+};
 
 const createCheckbox = ({ done, id }) => {
   const checkboxElem = document.createElement('input');
