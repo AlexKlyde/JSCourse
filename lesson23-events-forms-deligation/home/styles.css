@@ -64,6 +64,10 @@ body {
   margin-left: 16px;
 }
 
+.create-task-btn {
+  cursor: pointer;
+}
+
 .actions {
   display: flex;
   margin-bottom: 8px;

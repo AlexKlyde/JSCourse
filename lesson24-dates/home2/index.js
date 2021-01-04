@@ -1,21 +1,18 @@
 const tasks = [
-  { text: 'Buy milk', done: false, createDate: new Date().toISOString()},
-  { text: 'Pick up Tom from airport', done: false, createDate: new Date().toISOString()},
-  { text: 'Visit party', done: false, createDate: new Date().toISOString()},
-  { text: 'Visit doctor', done: true, createDate: new Date().toISOString()},
-  { text: 'Buy meat', done: true, createDate: new Date().toISOString()},
+  { text: 'Buy milk', done: false, createDate: new Date() },
+  { text: 'Pick up Tom from airport', done: false, createDate: new Date() },
+  { text: 'Visit party', done: false, createDate: new Date() },
+  { text: 'Visit doctor', done: true, createDate: new Date() },
+  { text: 'Buy meat', done: true, createDate: new Date() },
 ];
 
 const compareTasks = (a, b) => {
-  if (a.done < b.done) {
-    return -1;
+  if (!a.done) {
+    return new Date(b.createDate) - new Date(a.createDate);
   }
-
-  if (a.done > b.done) {
-    return 1;
+  if (a.done && b.done) {
+    return new Date(b.finishDate) - new Date(a.finishDate);
   }
-
-  return new Date(b.createDate) - new Date(a.createDate);
 };
 
 const ulElem = document.querySelector('.list');
@@ -81,17 +78,15 @@ createBtn.addEventListener('click', addTask);
 // 5. update the list
 // 6. render list items
 
-
 const changeTask = event => {
   if (event.target.className === 'list__item-checkbox') {
     const { id } = event.target.dataset;
     tasks[id].done = event.target.checked;
-    
+    tasks[id].finishDate = new Date();
+
     ulElem.innerHTML = '';
     renderListItems(tasks);
   }
 };
 
 ulElem.addEventListener('click', changeTask);
-
-
