@@ -100,8 +100,6 @@ const shmoment = date => {
     milliseconds: date.getMilliseconds(),
   };
 
-  console.log(result);
-
   const calculator = {
     add(dateType, num) {
       result[dateType] += num;
