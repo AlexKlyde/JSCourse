@@ -24,10 +24,10 @@ export const deleteTask = taskId =>
     method: 'DELETE',
   });
 
-const mapTasks = tasks => tasks
-  .map(({ _id, ...rest }) => ({ id: _id, ...rest }));
+/* const mapTasks = tasks => tasks
+  .map(({ _id, ...rest }) => ({ id: _id, ...rest })); */
 
 export const getTasksList = () =>
   fetch(baseUrl)
-    .then(response => response.json())
-    .then(tasks => mapTasks(tasks))
+    .then(response => response.json());
+    // .then(tasks => mapTasks(tasks));
