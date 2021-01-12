@@ -1,4 +1,4 @@
-const baseUrl = 'https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form';
+const baseUrl = 'https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/for';
 
 const formElem = document.querySelector('.login-form');
 const errorElem = document.querySelector('.error-text');
@@ -14,16 +14,16 @@ const fetchUserData = formData =>
     body: JSON.stringify(formData),
   });
 
-
 const onValidForm = () => {
   errorElem.textContent = '';
-  
+
   if (formElem.reportValidity()) {
     submitBtn.removeAttribute('disabled');
   } else {
     submitBtn.setAttribute('disabled', 'true');
   }
-}
+};
+
 const onFormSubmit = event => {
   event.preventDefault();
 
@@ -35,16 +35,15 @@ const onFormSubmit = event => {
       response.ok ? response.json() : Promise.reject(response),
     )
     .then(result => alert(JSON.stringify(result)))
+    .then(() =>
+      inputElems.forEach(item => {
+        item.value = '';
+      }),
+    )
     .catch(() => {
       errorElem.textContent = error;
     });
-
-  inputElems.forEach(item => {
-    item.value = '';
-  });
-};;
-
+};
 
 formElem.addEventListener('submit', onFormSubmit);
 formElem.addEventListener('input', onValidForm);
-
