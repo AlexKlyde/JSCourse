@@ -1,4 +1,4 @@
-const baseUrl = 'https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/for';
+const baseUrl = 'https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form';
 
 const formElem = document.querySelector('.login-form');
 const errorElem = document.querySelector('.error-text');
