@@ -28,6 +28,7 @@ const onFormSubmit = event => {
   event.preventDefault();
 
   const formData = Object.fromEntries(new FormData(formElem));
+  const error = new Error('Failed to create user');
 
   fetchUserData(formData)
     .then(response =>
@@ -39,7 +40,7 @@ const onFormSubmit = event => {
       }),
     )
     .catch(() => {
-      errorElem.textContent = 'Failed to create user';
+      errorElem.textContent = error.message;
     });
 };
 
