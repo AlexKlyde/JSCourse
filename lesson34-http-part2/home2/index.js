@@ -34,8 +34,7 @@ const onFormSubmit = event => {
       response.ok ? response.json() : Promise.reject(response),
     )
     .then(result => alert(JSON.stringify(result)))
-    .then(() =>
-      inputElems.forEach(item => {
+    .then(() => inputElems.forEach(item => {
         item.value = '';
       }),
     )
