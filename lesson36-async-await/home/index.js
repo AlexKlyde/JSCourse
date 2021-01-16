@@ -1,22 +1,19 @@
-const fetchUserData = userName =>
-  fetch(`https://api.github.com/users/${userName}`)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load data');
-  });
+const fetchUserData = async userName => {
+  const response = await fetch(`https://api.github.com/users/${userName}`);
 
-const getUsersBlogs = async usersNames => {
+  if (response.ok) {
+    return response.json();
+  }
+};
+
+const getUsersBlogs = usersNames => {
   try {
-    const requests = await Promise.all(
-      usersNames.map(name =>
-        fetchUserData(name)
-        .then(user => user.blog)),
+    return Promise.all(
+      usersNames.map(name => fetchUserData(name)
+          .then(user => user.blog))
     );
-    return requests;
   } catch (err) {
-    console.log(err.message);
+    console.err(err.message);
   }
 };
 
