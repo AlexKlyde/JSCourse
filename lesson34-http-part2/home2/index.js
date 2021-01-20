@@ -1,48 +1,46 @@
-const baseUrl = 'https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form';
-
-const formElem = document.querySelector('.login-form');
+const loginForm = document.querySelector('.login-form');
 const errorElem = document.querySelector('.error-text');
-const inputElems = document.querySelectorAll('.form-input');
 const submitBtn = document.querySelector('.submit-button');
-
-const fetchUserData = formData =>
-  fetch(baseUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(formData),
-  });
 
 const onValidForm = () => {
   errorElem.textContent = '';
 
-  if (formElem.reportValidity()) {
-    submitBtn.removeAttribute('disabled');
+  if (loginForm.reportValidity()) {
+    submitBtn.disabled = false;
   } else {
-    submitBtn.setAttribute('disabled', 'true');
+    submitBtn.disabled = true;
   }
 };
 
 const onFormSubmit = event => {
   event.preventDefault();
 
-  const formData = Object.fromEntries(new FormData(formElem));
-  const error = new Error('Failed to create user');
 
-  fetchUserData(formData)
-    .then(response =>
-      response.ok ? response.json() : Promise.reject(response),
-    )
-    .then(result => alert(JSON.stringify(result)))
-    .then(() => inputElems.forEach(item => {
-        item.value = '';
-      }),
-    )
-    .catch(() => {
+  const formData = Object.fromEntries(new FormData(loginForm));
+
+  fetch('https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.text();
+      }
+
+      throw new Error('Failed to create user');
+    })
+    .then(userData => {
+      alert(userData);
+      loginForm.reset();
+    })
+    .catch(error => {
       errorElem.textContent = error.message;
     });
 };
 
-formElem.addEventListener('submit', onFormSubmit);
-formElem.addEventListener('input', onValidForm);
+loginForm.addEventListener('submit', onFormSubmit);
+loginForm.addEventListener('input', onValidForm);
+

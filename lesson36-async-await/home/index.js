@@ -1,5 +1,5 @@
 const fetchUserData = async userName => {
-  const response = await fetch(`https://api.github.com/users/${userName}`);
+  const response = await fetch(`https://api.github.com/user/${userName}`);
 
   if (response.ok) {
     return response.json();
@@ -13,8 +13,8 @@ const getUsersBlogs = usersNames => {
           .then(user => user.blog))
     );
   } catch (err) {
-    console.err(err.message);
+    console.log(err);
   }
 };
 
-getUsersBlogs(['google', 'facebook']).then(linksList => console.log(linksList));
+getUsersBlogs(['google', 'facebook', '123']).then(linksList => console.log(linksList));
