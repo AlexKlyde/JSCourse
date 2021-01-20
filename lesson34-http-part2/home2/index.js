@@ -17,7 +17,7 @@ const onFormSubmit = event => {
 
   const formData = Object.fromEntries(new FormData(loginForm));
 
-  fetch('https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form', {
+  fetch('https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/for', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
@@ -32,8 +32,8 @@ const onFormSubmit = event => {
       throw new Error('Failed to create user');
     })
     .then(userData => {
-      alert(JSON.stringify(userData));
       loginForm.reset();
+      alert(JSON.stringify(userData));
     })
     .catch(error => {
       errorElem.textContent = error.message;
