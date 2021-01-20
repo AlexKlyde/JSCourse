@@ -26,13 +26,13 @@ const onFormSubmit = event => {
   })
     .then(response => {
       if (response.ok) {
-        return response.text();
+        return response.json();
       }
 
       throw new Error('Failed to create user');
     })
     .then(userData => {
-      alert(userData);
+      alert(JSON.stringify(userData));
       loginForm.reset();
     })
     .catch(error => {
