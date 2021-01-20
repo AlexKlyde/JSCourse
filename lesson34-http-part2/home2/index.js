@@ -15,7 +15,6 @@ const onValidForm = () => {
 const onFormSubmit = event => {
   event.preventDefault();
 
-
   const formData = Object.fromEntries(new FormData(loginForm));
 
   fetch('https://5ff9ad2b17386d0017b51ffd.mockapi.io/api/v1/form', {
